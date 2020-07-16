@@ -3,11 +3,11 @@
 
 ## Unexpected Behavior
 
--ComponenetDidUpdate causing an infinite loop 
+-Add METHOD causing 400 error. 
 
 ## Expected Behavior
 
-- Would like the loop to stop as i am getting the data that i want when it runs
+- Would like to have the request go through and add data to the page
 
 ## Reproduce the Error
 
@@ -16,8 +16,9 @@
 - run rails server
 - npm install & then npm run start
 - cd into client 
-- climns.jsx directory
-- uncomment out lines 19 to 241
+- go to route "http://localhost:3001/states/2/climbs
+- click add climb button and fill out form
+- 
 
 
 
@@ -28,7 +29,17 @@
 
 
 ```
+Started POST "/states/2/climbs" for ::1 at 2020-07-16 15:52:39 -0400
+Processing by ClimbsController#create as HTML
+  Parameters: {"state_id"=>"2"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 116)
 
+
+
+ActionController::ParameterMissing (param is missing or the value is empty: climb):
+
+app/controllers/climbs_controller.rb:55:in `climb_params'
+app/controllers/climbs_controller.rb:24:in `create'
 
 ```
 
@@ -37,7 +48,6 @@
 > If you haven't already, **Google your error message now**. See if those error messages return an answer. Include at least 2 resources you've tried to consult such as walk-throughs, stack overflow articles, and other discussion threads related to your error.
 
 ```
-https://dev.to/cesareferrari/how-to-use-componentdidupdate-in-react-30en
-https://www.newline.co/@dmitryrogozhny/using-componentdidupdate-in-react--f037b5aa
+https://airbrake.io/blog/http-errors/400-bad-request
 
 ```
