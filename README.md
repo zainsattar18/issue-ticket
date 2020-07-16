@@ -13,11 +13,11 @@
 
 > Describe the steps we can take to reproduce the error, i.e.:
 
--run rails server
--npm install & then npm run start
--cd into client 
--climns.jsx directory
--uncomment out lines 19 to 241
+- run rails server
+- npm install & then npm run start
+- cd into client 
+- climns.jsx directory
+- uncomment out lines 19 to 241
 
 
 
