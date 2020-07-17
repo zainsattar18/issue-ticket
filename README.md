@@ -3,7 +3,7 @@
 
 ## Unexpected Behavior
 
--Add METHOD causing 400 error. 
+-Post Method for Reviews controller is giving me 422 
 
 ## Expected Behavior
 
@@ -16,8 +16,8 @@
 - run rails server
 - npm install & then npm run start
 - cd into client 
-- go to route "http://localhost:3001/states/2/climbs
-- click add climb button and fill out form
+- go to to reviews and add new review
+- add data to clim
 - 
 
 
@@ -29,17 +29,17 @@
 
 
 ```
-Started POST "/states/2/climbs" for ::1 at 2020-07-16 15:52:39 -0400
-Processing by ClimbsController#create as HTML
-  Parameters: {"state_id"=>"2"}
-Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 116)
-
-
-
-ActionController::ParameterMissing (param is missing or the value is empty: climb):
-
-app/controllers/climbs_controller.rb:55:in `climb_params'
-app/controllers/climbs_controller.rb:24:in `create'
+rocessing by ReviewsController#create as HTML
+  Parameters: {"review"=>{"review"=>"fgbbgfbg", "rating"=>"2", "img_url"=>"https://images.unsplash.com/photo-1502126324834-38f8e02d7160?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"}, "climb_id"=>"1"}
+  User Load (1.0ms)  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19:in `authorize_request'
+   (0.3ms)  BEGIN
+  ↳ app/controllers/reviews_controller.rb:37:in `create'
+  Climb Load (0.3ms)  SELECT "climbs".* FROM "climbs" WHERE "climbs"."id" = $1 LIMIT $2  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:37:in `create'
+   (0.2ms)  ROLLBACK
+  ↳ app/controllers/reviews_controller.rb:37:in `create'
+Completed 422 Unprocessable Entity in 41ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 4022)
 
 ```
 
@@ -48,6 +48,6 @@ app/controllers/climbs_controller.rb:24:in `create'
 > If you haven't already, **Google your error message now**. See if those error messages return an answer. Include at least 2 resources you've tried to consult such as walk-throughs, stack overflow articles, and other discussion threads related to your error.
 
 ```
-https://airbrake.io/blog/http-errors/400-bad-request
-
+http://weblog.jamisbuck.org/2007/2/5/nesting-resources
+https://www.youtube.com/watch?v=T0lcUENA8zs
 ```
